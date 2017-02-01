@@ -1,0 +1,8 @@
+﻿Window "AmmyAvaloniaSample.MainWindow" {
+  TextBlock { 
+    HorizontalAlignment: Center
+    VerticalAlignment: Center
+    
+    "Hello from Ammy!"
+  }
+}

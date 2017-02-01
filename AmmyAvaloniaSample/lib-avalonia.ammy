@@ -1,0 +1,65 @@
+mixin TwoColumns (one = "*", two = "*") for Grid {
+  combine ColumnDefinitions: [
+    ColumnDefinition { Width: $one }
+    ColumnDefinition { Width: $two }
+  ]
+}
+
+mixin ThreeColumns (one = none, two = none, three = none) for Grid {
+  #TwoColumns($one, $two)
+  combine ColumnDefinitions: ColumnDefinition { Width: $three }
+}
+
+mixin FourColumns (one = none, two = none, three = none, four = none) for Grid {
+  #ThreeColumns($one, $two, $three)
+  combine ColumnDefinitions: ColumnDefinition { Width: $four }
+}
+
+mixin FiveColumns (one = none, two = none, three = none, four = none, five = none) for Grid {
+  #FourColumns($one, $two, $three, $four)
+  combine ColumnDefinitions: ColumnDefinition { Width: $five }
+}
+
+mixin TwoRows (one = none, two = none) for Grid
+{
+  combine RowDefinitions: [
+    RowDefinition { Height: $one }
+    RowDefinition { Height: $two }
+  ]
+}
+
+mixin ThreeRows (one = none, two = none, three = none) for Grid
+{
+  #TwoRows($one, $two)
+  combine RowDefinitions: RowDefinition { Height: $three }
+}
+
+mixin FourRows (one = none, two = none, three = none, four = none) for Grid
+{
+  #ThreeRows($one, $two, $three)
+  combine RowDefinitions: RowDefinition { Height: $four }
+}
+
+mixin FiveRows (one = none, two = none, three = none, four = none, five = none) for Grid
+{
+  #FourRows($one, $two, $three, $four)
+  combine RowDefinitions: RowDefinition { Height: $five }
+}
+
+mixin Cell (row = none, column = none, rowSpan = none, columnSpan = none) for Control {
+  Grid.Row: $row
+  Grid.Column: $column
+  Grid.RowSpan: $rowSpan
+  Grid.ColumnSpan: $columnSpan
+}
+
+
+mixin Setter(property, value, targetName=none) for Style {
+  Setter { Property: $property, Value: $value }
+}
+
+alias StackPanelHorizontal() {
+  StackPanel {
+    Orientation: Horizontal
+  }
+}

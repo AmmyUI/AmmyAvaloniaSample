@@ -1,0 +1,3 @@
+<Window xmlns="https://github.com/avaloniaui">
+  <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Hello from Ammy!</TextBlock>
+</Window>
